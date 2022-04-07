@@ -1,0 +1,259 @@
+
+body {
+    /* background-image: url("/app/media/home-bg.jpg");
+    background-repeat: no-repeat;*/
+    background: rgb(255, 255, 255); 
+
+    /* font-family: var(--ff-sans-normal); */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--fs-400);
+    color: hsl(var(--clr-white));
+    line-height: 1.5;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: min-content 1fr;
+
+    overflow-x: hidden;
+}
+
+/* header */
+.logo {
+    /* margin: 2rem; */
+    width: 100px;
+    height: 50px;
+}
+
+.primary-header {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+.primary-navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(1rem);
+}
+
+.primary-navigation a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.primary-navigation a > [aria-hidden="true"] {
+    font-weight: 700;
+    margin-inline-end: 0.75em;
+}
+
+@media (max-width: 35em) {
+    .primary-navigation {
+        --gap: 2em;
+
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2em;
+
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+    }
+
+    .primary-navigation a > [aria-hidden]{
+        display: none;
+    }
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        background-color: transparent;
+        background-image: url("../media/icon-hamburger.svg");
+        background-repeat: no-repeat;
+        width: 2rem;
+        border: 0;
+        aspect-ratio: 1;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url("../media/icon-close.svg");
+    }
+} 
+
+@media (min-width: 35em) and (max-width: 55em){
+    .primary-navigation a > [aria-hidden]{
+        display: none;
+    }
+}
+
+@media (min-width: 35em) {
+    .primary-navigation {
+        --gap: 3rem;
+        padding-block: 1rem;
+        padding-inline: clamp(3rem, 10vw, 10rem);
+    }
+
+    .primary-navigation a > [aria-hidden]{
+        display: none;
+    }
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 5rem);
+}
+
+
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --varyDarkBlue: hsl(234, 12%, 34%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --veryLightGray: hsl(0, 0%, 98%);
+    --weight1: 200;
+    --weight2: 400;
+    --weight3: 600;
+}
+
+/* boxes */
+img {
+    float: right;
+}
+
+@media (max-width: 450px) {
+    .box {
+        height: 200px;
+    }
+}
+
+@media (max-width: 950px) and (min-width: 450px) {
+    .box {
+        text-align: center;
+        height: 180px;
+    }
+}
+
+.box {
+    border-radius: 5px;
+    box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+    padding: 30px;
+    margin: 20px;  
+}
+
+.cyan {
+    border-top: 3px solid var(--cyan);
+}
+.red {
+    border-top: 3px solid var(--red);
+}
+.blue {
+    border-top: 3px solid var(--blue);
+}
+.orange {
+    border-top: 3px solid var(--orange);
+}
+
+@media (min-width: 950px) {
+    .row1-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .row2-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: scroll;
+        height: 600px;
+    }
+    .box-down {
+        position: relative;
+        top: 150px;
+    }
+    .box {
+        width: 35%;
+     
+    }
+    .header p {
+        width: 30%;
+    }
+    
+}
+/* 
+div.ex1 {
+    background-color: lightblue;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 900px;
+    height: 900px;
+    overflow: scroll;
+  } */
+
+/* footer */
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+.sr-only{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    border:0
+}
+
+
+.message {      
+    color: white;
+    padding: 18px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    width: 50%;
+    position: relative;
+    
+    /* &:after {
+      bottom: 100%;
+      left: 7%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-bottom-color: $green;
+      border-width: 10px;
+      margin-left: -10px;
+    } */
+  }
+  
+  .my-message {
+    background: rgb(120, 179, 120);
+  }
